@@ -1,0 +1,20 @@
+.login, .sign-up {
+    border: 2px solid limegreen;
+    border-radius: 10%;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-header {
+    font-size: 2em;
+    text-align: center;
+}
+
+input {
+    margin: 2%;
+}
