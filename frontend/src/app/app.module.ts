@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
+import { AddExpenseComponent } from './components/add-expense/add-expense.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     AppComponent,
     LoginComponent,
     HomeComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    AddExpenseComponent
   ],
   imports: [
     BrowserModule,
