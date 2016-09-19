@@ -46,7 +46,6 @@ export class AddExpenseComponent implements OnInit {
     let expenseItems = document.getElementsByClassName('expense-container')
     let expenseObj = {}
     for(let i = 0; i < expenseItems.length; i++) {
-      console.log('hello')
       expenseObj[i] = {}
       expenseObj[i].expenseCategory = expenseItems[i].children[1].value
       expenseObj[i].amount = expenseItems[i].children[2].value

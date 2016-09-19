@@ -1,13 +1,16 @@
-<div class="login">
+<div class="form-container">
+<div class="login" *ngIf="!signupForm">
     <p class="display-1 login-header">Login</p>
     <form class="login-form form-group">
     	  <input class="form-control" type="text" name="u" placeholder="Username" required="required" />
         <input class="form-control" type="password" name="p" placeholder="Password" required="required" />
         <button class="btn btn-success" type="submit" >Login</button>
+        <hr>
+        <button class="btn btn-success form-control" (click)="signupForm = true">Sign Up</button>
     </form>
 </div>
 
-<div class="sign-up">
+<div class="sign-up" *ngIf="signupForm">
     <p class="display-1 login-header">Sign Up</p>
     <form class="login-form form-group">
     	  <input class="form-control" type="text" name="first-name" placeholder="First Name" required="required" />
@@ -15,6 +18,9 @@
     	  <input class="form-control" type="text" name="username" placeholder="Username" required="required" />
         <input class="form-control" type="password" name="password" placeholder="Password" required="required" />
         <input class="form-control" type="password" name="confirm-password" placeholder="Confirm Password" required="required" />
-        <button class="btn btn-success" type="submit" >Sign Up</button>
+        <button class="btn btn-success" >Sign Up</button>
+        <hr>
+        <button class="btn btn-success form-control" (click)="signupForm = false">Login</button>
     </form>
+</div>
 </div>
