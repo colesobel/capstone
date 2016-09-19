@@ -47,10 +47,10 @@ export class AddExpenseComponent implements OnInit {
     let expenseObj = {}
     for(let i = 0; i < expenseItems.length; i++) {
       expenseObj[i] = {}
-      expenseObj[i].expenseCategory = expenseItems[i].children[1].value
-      expenseObj[i].amount = expenseItems[i].children[2].value
-      expenseObj[i].date = expenseItems[i].children[3].value
-      expenseObj[i].time = expenseItems[i].children[4].value
+      expenseObj[i].expenseCategory = expenseItems[i]['children'][1]['value']
+      expenseObj[i].amount = expenseItems[i]['children'][2]['value']
+      expenseObj[i].date = expenseItems[i]['children'][3]['value']
+      expenseObj[i].time = expenseItems[i]['children'][4]['value']
     }
     console.log(expenseObj);
   }
