@@ -1,2 +1,23 @@
 <app-navbar></app-navbar>
+<button class="btn btn-success add-expense" (click)="addExpense()">Add an Expense</button>
+
 <p class="display-1 page-header">Add an Expense</p>
+
+<form class="form-group">
+  <div class="expense-container" *ngFor="let num of expenses; let i = index">
+    <h3>Expense {{i + 1}}</h3>
+    <select class="form-control input">
+      <option>Housing</option>
+      <option>Car</option>
+      <option>Utilities</option>
+    </select>
+    <input type="number" class="form-control input" placeholder="Amount">
+    <input type="date" class="form-control input" value="{{dateString}}">
+    <select class="form-control input">
+        <option *ngFor="let time of times">
+          {{time}}
+        </option>
+    </select>
+  </div>
+  <button class="btn btn-success" type="submit">Submit Expenses</button>
+</form>
