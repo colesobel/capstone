@@ -8,7 +8,8 @@ const APP_ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'home', component: HomeComponent},
     {path: 'settings', component: AccountSettingsComponent},
-    {path: 'add-expense', component: AddExpenseComponent}
+    {path: 'add-expense', component: AddExpenseComponent},
+    {path: '**', component: LoginComponent}
 ]
 
 
