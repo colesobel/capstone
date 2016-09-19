@@ -14,4 +14,5 @@
 
 .add-expense {
     float: right !important;
+    background: linear-gradient(to bottom right, #00b300, #1aff1a);
 }

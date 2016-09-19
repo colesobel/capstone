@@ -3,7 +3,7 @@
 
 <p class="display-1 page-header">Add an Expense</p>
 
-<form class="form-group">
+<form class="form-group" (ngSubmit)="onSubmit()">
   <div class="expense-container" *ngFor="let num of expenses; let i = index">
     <h3>Expense {{i + 1}}</h3>
     <select class="form-control input">
