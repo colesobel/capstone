@@ -1,36 +1,39 @@
 <app-navbar></app-navbar>
-<p class="display-1 page-header">Configure Your Settings</p>
 
-	<ul class="tabrow">
-    <li class="selected" #firstLi (click)="selectTab(firstLi, 'expenseCategories')"><span>Expense Categories</span></li>
-	    <li #secondLi (click)="selectTab(secondLi, 'fixedExpenses')"><span>Fixed Expenses</span></li>
-	    <li #thirdLi (click)="selectTab(thirdLi, 'income')"><span>Income</span></li>
-	    <li #fourthLi (click)="selectTab(fourthLi, 'savings')"><span>Savings Target</span></li>
-	</ul>
+<div class="container">
+  <p class="display-1 page-header">Configure Your Settings</p>
 
-<form class="form-group" *ngIf="selectedTab === 'expenseCategories'">
-  <p class="display-1 sub-title">Expense Categories</p>
-  <p>We've added a few generic categories, but if you want to track expenses that don't fall into one of these categories, add them to your choices here!</p>
-  <div class="expense-categories-container">
+    <ul class="tabrow">
+      <li class="selected" #firstLi (click)="selectTab(firstLi, 'expenseCategories')"><span>Expense Categories</span></li>
+        <li #secondLi (click)="selectTab(secondLi, 'fixedExpenses')"><span>Fixed Expenses</span></li>
+        <li #thirdLi (click)="selectTab(thirdLi, 'income')"><span>Income</span></li>
+        <li #fourthLi (click)="selectTab(fourthLi, 'savings')"><span>Savings Target</span></li>
+    </ul>
 
-  </div>
-</form>
+  <form class="form-group" *ngIf="selectedTab === 'expenseCategories'">
+    <p class="display-1 sub-title">Expense Categories</p>
+    <p>We've added a few generic categories, but if you want to track expenses that don't fall into one of these categories, add them to your choices here!</p>
+    <div class="expense-categories-container">
 
-<form class="form-group" *ngIf="selectedTab === 'fixedExpenses'">
-  <p class="display-1 sub-title">Fixed Expenses</p>
-  <div class="fixed-expense-container">
+    </div>
+  </form>
 
-  </div>
-</form>
+  <form class="form-group" *ngIf="selectedTab === 'fixedExpenses'">
+    <p class="display-1 sub-title">Fixed Expenses</p>
+    <div class="fixed-expense-container">
 
-<form class="form-group" *ngIf="selectedTab === 'income'">
-  <p class="display-1 sub-title">Monthly Net Income</p>
-  
+    </div>
+  </form>
 
-</form>
+  <form class="form-group" *ngIf="selectedTab === 'income'">
+    <p class="display-1 sub-title">Monthly Net Income</p>
+    
 
-<form class="form-group" *ngIf="selectedTab === 'savings'">
-  <p class="display-1 sub-title">Desired Monthly Savings Target</p>
-  
+  </form>
 
-</form>
+  <form class="form-group" *ngIf="selectedTab === 'savings'">
+    <p class="display-1 sub-title">Desired Monthly Savings Target</p>
+    
+
+  </form>
+</div>

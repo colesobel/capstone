@@ -11,3 +11,8 @@ a {
 a:hover {
     color: pink !important;
 }
+
+/*.navbar {
+    position: fixed;
+    top: 0;
+}*/
