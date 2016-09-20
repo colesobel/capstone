@@ -6,6 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-settings.component.css']
 })
 export class AccountSettingsComponent implements OnInit {
+  selectedTab: string = 'expenseCategories'
+
+  selectTab(li, name) {
+    let tabs = document.getElementsByTagName('li')
+    for(let i = 0; i < tabs.length; i++) {
+      tabs[i].className = ''
+    }
+    li.className = 'selected'
+    this.selectedTab = name
+  }
+
 
   constructor() { }
 
