@@ -1,0 +1,13 @@
+.sub-title {
+    font-size: 2em;
+}
+
+.nav-tabs-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-tab {
+    cursor: pointer;
+    margin: 0.5%;
+}

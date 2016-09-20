@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     loginInfo['username'] = username.value
     loginInfo['password'] = password.value
     console.log(loginInfo)
+    localStorage.setItem('username', username.value)
     this._router.navigate(['/home'])
   } 
 
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     signupInfo['username'] = username.value
     signupInfo['password'] = password.value
     console.log(signupInfo);
-    this._router.navigate(['/home'])
+    this._router.navigate(['/settings'])
   }
 
   ngOnInit() {
