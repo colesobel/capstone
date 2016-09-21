@@ -96,21 +96,6 @@ app-navbar {
 .content h2 { padding:0 25px; }
 .content p { padding:0 50px; }
 
-#footer {
-  text-align: center;
-  padding: 20px 0 20px;
-  box-sizing:border-box;-moz-box-sizing:border-box;
-  position:relative;
-  z-index:2;
-  background:#FFF;
-  width:100%;
-  height:auto;
-  margin:0;
-   -webkit-box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
-  box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
-}
-
 
 .container {
   width: 800px;

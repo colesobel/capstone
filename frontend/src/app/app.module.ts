@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
+import { StackedBarComponent } from './components/stacked-bar/stacked-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
     LoginComponent,
     HomeComponent,
     AccountSettingsComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    StackedBarComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
       container: document.querySelector('.heatmap'),
       radius: 25,
       blur: 0.85,
-      backgroundColor: 'rgba(0, 0, 0, 0.6)'
+      backgroundColor: 'rgba(0, 0, 0, 0.5)'
     });
 
     // heatmap data format
