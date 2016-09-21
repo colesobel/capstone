@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
       // only container is required, the rest will be defaults
       container: document.querySelector('.heatmap'),
       radius: 25,
-      blur: 0.85
+      blur: 0.85,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)'
     });
 
     // heatmap data format
@@ -27,6 +28,40 @@ export class HomeComponent implements OnInit {
     // if you have a set of datapoints always use setData instead of addData
     // for data initialization
     heatmapInstance.setData(data);
+
+
+    Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
+    function unpack(rows, key) {
+      return rows.map(function(row) { return row[key]; });
+    }
+
+    var z_data=[ ]
+    for(let i=0; i<24; i++){
+      z_data.push(unpack(rows,i));
+    }
+
+    var data = [{
+              z: z_data,
+              type: 'surface'
+            }];
+
+    var layout = {
+      title: 'Mt Bruno Elevation',
+      autosize: false,
+      width: 500,
+      height: 500,
+      margin: {
+        l: 65,
+        r: 50,
+        b: 65,
+        t: 90,
+      }
+    };
+    Plotly.newPlot('myDiv', data, layout);
+    });
+
+
+
   }
 
 }
