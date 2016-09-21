@@ -17,8 +17,9 @@ app-navbar {
   z-index:1;
   height:450px;
   -webkit-box-shadow: inset 0px -6px 5px rgba(50, 50, 50, 0.75);
--moz-box-shadow: inset 0px -6px 5px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: inset 0px -6px 5px rgba(50, 50, 50, 0.75);
 box-shadow: inset 0px -6px 5px rgba(50, 50, 50, 0.75);
+margin-top: 50px;
 }
 
 #trans1 {
@@ -108,4 +109,18 @@ box-shadow: inset 0px -6px 5px rgba(50, 50, 50, 0.75);
    -webkit-box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
   box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
+}
+
+
+.container {
+  width: 800px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.x-labels {
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
