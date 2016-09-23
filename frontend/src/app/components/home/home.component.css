@@ -97,23 +97,3 @@ app-navbar {
 .content p { padding:0 50px; }
 
 
-.container {
-  width: 800px;
-  height: 400px;
-  border: 1px solid black;
-  position: absolute;
-  z-index: 5;
-}
-
-.x-labels {
-  width: 800px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.heatmap-background {
-  /*background-color: rgba(0, 0, 0, 0.6);*/
-  
-  /*opacity: .5;*/
-}

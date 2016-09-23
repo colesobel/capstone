@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from '../../services/http.service'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [HttpService]
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _http: HttpService) { }
 
   login(username, password) {
     let loginInfo = {}
@@ -16,6 +18,9 @@ export class LoginComponent implements OnInit {
     loginInfo['password'] = password.value
     console.log(loginInfo)
     localStorage.setItem('username', username.value)
+    this._http.postData('http://localhost:3000/login/', loginInfo).subscribe(data => {
+      console.log(data);
+    })
     this._router.navigate(['/home'])
   } 
 
