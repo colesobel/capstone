@@ -12,22 +12,12 @@ let login = {
                     })
                 })
             } else {
-                return new Promise((resolve, reject) => {
-                    resolve('username already exists')
-                })
+                return new Promise((resolve, reject) => {resolve('username already exists')})
             }
         })
     },
     login: function(userInfo) {
-        return knex.raw(`select * from users where username = '${userInfo.username}'`).then(user => {
-            if (user.rows.length > 0) {
-
-            }
-        })
-        return new Promise((resolve, reject) => {
-            bcrypt.compare(hashedPass, hash, function(err, res) {
-            });
-        })
+        return loginService.gethashedPassword(userInfo.username, userInfo.password)
     }
 }
 
