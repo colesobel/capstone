@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     loginInfo['password'] = password.value
     console.log(loginInfo)
     localStorage.setItem('username', username.value)
-    this._http.postData('http://localhost:3000/login/', loginInfo).subscribe(data => {
+    this._http.postData('http://localhost:3000/login/login', loginInfo).subscribe(data => {
       console.log(data);
     })
     this._router.navigate(['/home'])
@@ -35,6 +35,9 @@ export class LoginComponent implements OnInit {
     signupInfo['username'] = username.value
     signupInfo['password'] = password.value
     console.log(signupInfo);
+    this._http.postData('http://localhost:3000/login/signup', signupInfo).subscribe(data => {
+      console.log(data);
+    })
     this._router.navigate(['/settings'])
   }
 

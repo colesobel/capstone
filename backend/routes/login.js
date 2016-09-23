@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
+let Login = require('../models/login')
 
-/* GET home page. */
-router.post('/', function(req, res, next) {
+router.post('/login', function(req, res, next) {
     console.log(req.body)
-    res.json('hello')
+    res.json('login')
+});
+
+router.post('/signup', function(req, res, next) {
+    Login.signup(req.body).then(() => res.json('signup success'))
 });
 
 module.exports = router;
