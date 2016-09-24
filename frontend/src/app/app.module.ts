@@ -14,6 +14,7 @@ import { AccountSettingsComponent } from './components/account-settings/account-
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
 import { StackedBarComponent } from './components/stacked-bar/stacked-bar.component';
 import { HeatmapComponent } from './components/heatmap/heatmap.component';
+import { ExpenseCategoriesComponent } from './components/expense-categories/expense-categories.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
     AccountSettingsComponent,
     AddExpenseComponent,
     StackedBarComponent,
-    HeatmapComponent
+    HeatmapComponent,
+    ExpenseCategoriesComponent
   ],
   imports: [
     BrowserModule,

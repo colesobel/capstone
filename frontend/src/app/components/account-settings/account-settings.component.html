@@ -11,18 +11,7 @@
     </ul>
 
   <form class="form-group" *ngIf="selectedTab === 'expenseCategories'">
-    <p class="display-1 sub-title">Expense Categories</p>
-    <p>We've added a few generic categories, but if you want to track expenses that don't fall into one of these categories, add them to your choices here!</p>
-    <input type="text" #newCat>
-    <button class="btn btn-primary" (click)="addCategory(newCat)">Add Category</button>
-    <div class="expense-categories-container">
-      <div class="list-group expense-parent">
-        <div class="list-group-item expense-list-item" *ngFor="let cat of expenseCategories">
-          <h4 class="h4 capitalize">{{cat.expense_category}}</h4>
-          <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Delete</button>
-        </div>
-      </div>
-    </div>
+    <app-expense-categories></app-expense-categories>
   </form>
 
   <form class="form-group" *ngIf="selectedTab === 'fixedExpenses'">
