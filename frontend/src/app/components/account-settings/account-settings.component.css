@@ -113,3 +113,7 @@
 .tabrow li.selected SPAN:after{
   background: white;
 }
+
+.expense-categories-container {
+  width: 50%;
+}

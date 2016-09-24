@@ -1,4 +1,10 @@
-
+.form-holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
 .login, .sign-up {
     background: linear-gradient(to bottom right, #00b300, #1aff1a);

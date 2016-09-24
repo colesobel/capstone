@@ -18,6 +18,19 @@ let login = {
     },
     login: function(userInfo) {
         return loginService.gethashedPassword(userInfo.username, userInfo.password)
+    },
+    addDefaultExpenseCategories: user_id => {
+        return new Promise((resolve, reject) => {
+            let expenseCategories = ['groceries', 'rent', 'car', 'utilities', 'restaurants', 'household items', 'entertainment', 'fun', 'clothing', 'nightlife']
+            let databaseArray = []
+            expenseCategories.forEach(exp => {
+                databaseArray.push(knex.raw(`insert into expense_categories values (default, ${user_id}, '${exp}')`))
+            })
+            Promise.all(databaseArray).then(() => {
+                console.log('default expense categories in database')
+                resolve()
+            })
+        })
     }
 }
 

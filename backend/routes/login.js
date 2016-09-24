@@ -8,7 +8,11 @@ router.post('/login', function(req, res, next) {
 
 router.post('/signup', function(req, res, next) {
     Login.signup(req.body).then((userId) => {
-        return userId ? res.json(userId.rows[0].id) : res.json(userId)
+        if (userId) {
+            Login.addDefaultExpenseCategories(userId.rows[0].id).then(() => res.json(userId.rows[0].id))
+        } else {
+            res.json(userId)
+        } 
     }).catch(e => console.log(e))
 });
 
