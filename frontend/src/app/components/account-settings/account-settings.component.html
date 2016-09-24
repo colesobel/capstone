@@ -15,8 +15,8 @@
     <p>We've added a few generic categories, but if you want to track expenses that don't fall into one of these categories, add them to your choices here!</p>
     <div class="expense-categories-container">
       <div class="list-group">
-        <div class="list-group-item">
-          <h4 class="h4">List group item heading</h4>
+        <div class="list-group-item" *ngFor="let cat of expenseCategories">
+          <h4 class="h4 capitalize">{{cat.expense_category}}</h4>
         </div>
       </div>
     </div>

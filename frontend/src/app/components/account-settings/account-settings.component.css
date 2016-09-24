@@ -115,5 +115,9 @@
 }
 
 .expense-categories-container {
-  width: 50%;
+  width: 40%;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

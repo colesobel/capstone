@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../services/http.service'
 
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
-  styleUrls: ['./account-settings.component.css']
+  styleUrls: ['./account-settings.component.css'],
+  providers: [ HttpService]
 })
 export class AccountSettingsComponent implements OnInit {
   selectedTab: string = 'expenseCategories'
@@ -18,11 +20,16 @@ export class AccountSettingsComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private _http: HttpService) { }
+  user_id: number;
+  expenseCategories: string[] = []
 
   ngOnInit() {
-    console.log(localStorage.getItem('user_id'));
-    
+    this.user_id = localStorage.getItem('user_id')
+    this._http.postData('http://localhost:3000/accountSettings/getExpenseCategories', {user_id: this.user_id}).subscribe(categories => {
+      console.log(categories);
+      categories.forEach(cat => this.expenseCategories.push(cat))
+    })  
   }
 
 }

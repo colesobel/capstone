@@ -27,7 +27,6 @@ let login = {
                 databaseArray.push(knex.raw(`insert into expense_categories values (default, ${user_id}, '${exp}')`))
             })
             Promise.all(databaseArray).then(() => {
-                console.log('default expense categories in database')
                 resolve()
             })
         })
