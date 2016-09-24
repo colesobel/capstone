@@ -21,6 +21,8 @@ export class AccountSettingsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(localStorage.getItem('user_id'));
+    
   }
 
 }

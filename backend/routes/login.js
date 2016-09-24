@@ -8,7 +8,7 @@ router.post('/login', function(req, res, next) {
 
 router.post('/signup', function(req, res, next) {
     Login.signup(req.body).then((userId) => {
-        return typeof userId === 'string' ? res.json(userId) : res.json(userId.rows[0].id)
+        return userId ? res.json(userId.rows[0].id) : res.json(userId)
     }).catch(e => console.log(e))
 });
 

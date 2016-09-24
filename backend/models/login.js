@@ -12,7 +12,7 @@ let login = {
                     })
                 })
             } else {
-                return new Promise((resolve, reject) => {resolve('username already exists')})
+                return new Promise((resolve, reject) => {resolve(false)})
             }
         })
     },

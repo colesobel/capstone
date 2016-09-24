@@ -12,16 +12,22 @@ export class LoginComponent implements OnInit {
 
   constructor(private _router: Router, private _http: HttpService) { }
 
+  blockLogin = false
+  blockSignup = false
+
+
   login(username, password) {
     let loginInfo = {}
     loginInfo['username'] = username.value
     loginInfo['password'] = password.value
-    console.log(loginInfo)
-    localStorage.setItem('username', username.value)
     this._http.postData('http://localhost:3000/login/login', loginInfo).subscribe(data => {
-      console.log(data);
+      if (data) {
+        localStorage.setItem('user_id', data)
+        this._router.navigate(['/home'])
+      } else {
+        this.blockLogin = true
+      }
     })
-    this._router.navigate(['/home'])
   } 
 
   signUp(firstName, lastName, username, password, passwordConfirmation) {
@@ -34,11 +40,14 @@ export class LoginComponent implements OnInit {
     signupInfo['lastName'] = lastName.value
     signupInfo['username'] = username.value
     signupInfo['password'] = password.value
-    console.log(signupInfo);
     this._http.postData('http://localhost:3000/login/signup', signupInfo).subscribe(data => {
-      console.log(data);
+      localStorage.setItem('user_id', data)
+      if (data) {
+        this._router.navigate(['/settings'])
+      } else {
+        this.blockSignup = true
+      }
     })
-    this._router.navigate(['/settings'])
   }
 
   ngOnInit() {
