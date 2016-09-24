@@ -16,9 +16,10 @@
     <input type="text" #newCat>
     <button class="btn btn-primary" (click)="addCategory(newCat)">Add Category</button>
     <div class="expense-categories-container">
-      <div class="list-group">
-        <div class="list-group-item" *ngFor="let cat of expenseCategories">
-          <h4 class="h4 capitalize">{{cat}}</h4>
+      <div class="list-group expense-parent">
+        <div class="list-group-item expense-list-item" *ngFor="let cat of expenseCategories">
+          <h4 class="h4 capitalize">{{cat.expense_category}}</h4>
+          <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Delete</button>
         </div>
       </div>
     </div>

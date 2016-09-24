@@ -15,6 +15,13 @@ router.post('/addExpenseCategories', function(req, res, next) {
 })
 
 
+router.post('/deleteExpenseCategories', function(req, res, next) {
+    AccountSettings.deleteExpenseCategory(req.body.user_id, req.body.category).then(() => res.json('success'))
+})
+
+
+
+
 
 
 module.exports = router;
