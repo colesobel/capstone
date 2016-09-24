@@ -24,12 +24,21 @@ export class AccountSettingsComponent implements OnInit {
   user_id: number;
   expenseCategories: string[] = []
 
-  ngOnInit() {
-    this.user_id = localStorage.getItem('user_id')
+  addCategory(cat) {
+    this._http.postData('http://localhost:3000/accountSettings/addExpenseCategories', {user_id: this.user_id, category: cat.value}).subscribe(category => {
+      this.getExpenseCategories()
+    })
+  }
+
+  getExpenseCategories = () => {
     this._http.postData('http://localhost:3000/accountSettings/getExpenseCategories', {user_id: this.user_id}).subscribe(categories => {
-      console.log(categories);
-      categories.forEach(cat => this.expenseCategories.push(cat))
-    })  
+      this.expenseCategories = categories.map(cat => cat.expense_category)
+    }) 
+  }
+
+  ngOnInit() {
+    this.user_id = localStorage.getItem('user_id') 
+    this.getExpenseCategories()
   }
 
 }
