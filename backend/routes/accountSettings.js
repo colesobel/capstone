@@ -25,6 +25,15 @@ router.post('/addFixedExpenses', function(req, res, next) {
     AccountSettings.addFixedExpenses(req.body).then(() => res.json('success'))
 })
 
+router.post('/getFixedExpenses', function(req, res, next) {
+    AccountSettings.getFixedExpenses(req.body.user_id).then((fixedExpenses) => res.json(fixedExpenses.rows))
+})
+
+
+
+
+
+
 
 
 

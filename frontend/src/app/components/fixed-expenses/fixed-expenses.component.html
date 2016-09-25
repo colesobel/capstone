@@ -1,12 +1,17 @@
 <p class="display-1 sub-title">Fixed Expenses</p>
-<div class="fixed-expense-container">
-
+<div class="list-group expense-parent">
+  <div class="list-group-item expense-list-item" *ngFor="let exp of fixedExpenses">
+    <h4 class="h4 capitalize">{{exp.expense_category}}</h4>
+    <h5>{{exp.expense_amount}}</h5>
+    <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Delete</button>
+  </div>
 </div>
+
 
   <button class="btn btn-success add-expense" (click)="addExpense()">Add Fixed Expense</button>
 
   <form class="form-group" (ngSubmit)="onSubmit()">
-    <div class="expense-container" *ngFor="let num of fixedExpenses; let i = index">
+    <div class="expense-container" *ngFor="let num of fixedExpensesInputs; let i = index">
       <h3>Fixed Expense {{i + 1}}</h3>
       <select class="form-control input">
         <option>Housing</option>

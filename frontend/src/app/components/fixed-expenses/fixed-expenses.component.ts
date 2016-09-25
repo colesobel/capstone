@@ -10,11 +10,12 @@ import { HttpService } from '../../services/http.service'
 export class FixedExpensesComponent implements OnInit {
 
   constructor(private _http: HttpService) { }
-  fixedExpenses: string[] = ['expense']
+
+  fixedExpensesInputs: string[] = ['expense']
   addExpense() {
-    this.fixedExpenses.push('expense')
-    
+    this.fixedExpensesInputs.push('expense')
   }
+
   onSubmit() {
     let expenseItems = document.getElementsByClassName('expense-container')
     let expenseObj = {}
@@ -23,14 +24,22 @@ export class FixedExpensesComponent implements OnInit {
       expenseObj[i].expenseCategory = expenseItems[i]['children'][1]['value']
       expenseObj[i].amount = expenseItems[i]['children'][2]['value']
     }
-    console.log(expenseObj);
     this._http.postData('http://localhost:3000/accountSettings/addFixedExpenses', {user_id: this.user_id, fixed_expenses: expenseObj}).subscribe(data => {
-      console.log(data);
+      this.getFixedExpenses()
+    })
+  }
+
+  fixedExpenses: any[]
+  getFixedExpenses = () => {
+    this._http.postData('http://localhost:3000/accountSettings/getFixedExpenses', {user_id: this.user_id}).subscribe(data => {
+      this.fixedExpenses = data
+      
     })
   }
   user_id: number;
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id')) 
+    this.getFixedExpenses()
   }
 
 }

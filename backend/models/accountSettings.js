@@ -19,6 +19,10 @@ let accountSettings = {
             let expenseUploads = AccountSettingsService.createFixedExpenseArray(userInfo)
             Promise.all(expenseUploads).then(() => resolve())
         })
+    },
+
+    getFixedExpenses: (user_id) => {
+        return knex.raw(`select expense_category, expense_amount from fixed_expenses where user_id = ${user_id}`)
     }
 
 }
