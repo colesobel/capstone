@@ -1,0 +1,19 @@
+<p class="display-1 sub-title">Fixed Expenses</p>
+<div class="fixed-expense-container">
+
+</div>
+
+  <button class="btn btn-success add-expense" (click)="addExpense()">Add Fixed Expense</button>
+
+  <form class="form-group" (ngSubmit)="onSubmit()">
+    <div class="expense-container" *ngFor="let num of fixedExpenses; let i = index">
+      <h3>Fixed Expense {{i + 1}}</h3>
+      <select class="form-control input">
+        <option>Housing</option>
+        <option>Car</option>
+        <option>Utilities</option>
+      </select>
+      <input type="number" class="form-control input" placeholder="Amount">
+    </div>
+    <button class="btn btn-success submit-expenses" type="submit">Submit Fixed Expenses</button>
+  </form>

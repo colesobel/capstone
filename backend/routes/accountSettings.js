@@ -20,6 +20,12 @@ router.post('/deleteExpenseCategories', function(req, res, next) {
 })
 
 
+router.post('/addFixedExpenses', function(req, res, next) {
+    console.log(req.body)
+    AccountSettings.addFixedExpenses(req.body).then(() => res.json('success'))
+})
+
+
 
 
 

@@ -15,6 +15,7 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
 import { StackedBarComponent } from './components/stacked-bar/stacked-bar.component';
 import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { ExpenseCategoriesComponent } from './components/expense-categories/expense-categories.component';
+import { FixedExpensesComponent } from './components/fixed-expenses/fixed-expenses.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ExpenseCategoriesComponent } from './components/expense-categories/expe
     AddExpenseComponent,
     StackedBarComponent,
     HeatmapComponent,
-    ExpenseCategoriesComponent
+    ExpenseCategoriesComponent,
+    FixedExpensesComponent
   ],
   imports: [
     BrowserModule,

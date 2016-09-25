@@ -14,12 +14,9 @@
     <app-expense-categories></app-expense-categories>
   </form>
 
-  <form class="form-group" *ngIf="selectedTab === 'fixedExpenses'">
-    <p class="display-1 sub-title">Fixed Expenses</p>
-    <div class="fixed-expense-container">
-
-    </div>
-  </form>
+  <div *ngIf="selectedTab === 'fixedExpenses'">
+    <app-fixed-expenses></app-fixed-expenses>
+  </div>
 
   <form class="form-group" *ngIf="selectedTab === 'income'">
     <p class="display-1 sub-title">Monthly Net Income</p>
