@@ -16,6 +16,7 @@ import { StackedBarComponent } from './components/stacked-bar/stacked-bar.compon
 import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { ExpenseCategoriesComponent } from './components/expense-categories/expense-categories.component';
 import { FixedExpensesComponent } from './components/fixed-expenses/fixed-expenses.component';
+import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FixedExpensesComponent } from './components/fixed-expenses/fixed-expens
     StackedBarComponent,
     HeatmapComponent,
     ExpenseCategoriesComponent,
-    FixedExpensesComponent
+    FixedExpensesComponent,
+    MonthlyIncomeComponent
   ],
   imports: [
     BrowserModule,

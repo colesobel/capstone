@@ -23,6 +23,10 @@ let accountSettings = {
 
     getFixedExpenses: (user_id) => {
         return knex.raw(`select expense_category, expense_amount from fixed_expenses where user_id = ${user_id}`)
+    },
+
+    enterIncome: (incomeInfo) => {
+        return knex.raw(`insert into user_income values (default, ${incomeInfo.user_id}, ${incomeInfo.income})`)
     }
 
 }
