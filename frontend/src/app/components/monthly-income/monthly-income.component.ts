@@ -9,6 +9,7 @@ import { HttpService } from '../../services/http.service'
 })
 export class MonthlyIncomeComponent implements OnInit {
   user_id: number
+  userIncome: number
   constructor(private _http:HttpService) { }
 
   onSubmit(income) {
@@ -18,8 +19,15 @@ export class MonthlyIncomeComponent implements OnInit {
     })
   }
 
+  getMonthlyIncome = () => {
+    this._http.postData('http://localhost:3000/accountSettings/getIncome', {user_id: this.user_id}).subscribe(income => {
+      this.userIncome = income
+    })
+  }
+
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id'))
+    this.getMonthlyIncome()
   }
 
 }

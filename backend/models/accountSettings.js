@@ -27,6 +27,10 @@ let accountSettings = {
 
     enterIncome: (incomeInfo) => {
         return knex.raw(`insert into user_income values (default, ${incomeInfo.user_id}, ${incomeInfo.income})`)
+    },
+
+    getIncome: user_id => {
+        return knex.raw(`select monthly_income from user_income where user_id = ${user_id}`)
     }
 
 }

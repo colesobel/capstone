@@ -1,4 +1,8 @@
 <p class="display-1 sub-title">Monthly Net Income</p>
+<div class="list-group-item expense-list-item">
+  <h4 class="h4 capitalize">{{userIncome}}</h4>
+  <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Edit</button>
+</div>
 <form class="form-group" (ngSubmit)="onSubmit(income)">
   <label for="monthly-income"></label>
   <input class="form-control income-input" type="number" name="monthly-income" placeholder="Enter Your Monthly Takehome Income" #income>

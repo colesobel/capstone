@@ -34,6 +34,11 @@ router.post('/enterIncome', function(req, res, next) {
 })
 
 
+router.post('/getIncome', function(req, res, next) {
+    AccountSettings.getIncome(req.body.user_id).then(income => res.json(income.rows[0].monthly_income))
+})
+
+
 
 
 
