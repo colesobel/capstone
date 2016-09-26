@@ -12,6 +12,9 @@ export class FixedExpensesComponent implements OnInit {
   constructor(private _http: HttpService) { }
 
   fixedExpensesInputs: string[] = ['expense']
+
+  expenseCategories: any[];
+
   addExpense() {
     this.fixedExpensesInputs.push('expense')
   }
@@ -36,10 +39,18 @@ export class FixedExpensesComponent implements OnInit {
       
     })
   }
+
+  getExpenseCategories = () => {
+    this._http.postData('http://localhost:3000/accountSettings/getExpenseCategories', {user_id: this.user_id}).subscribe(categories => {
+      this.expenseCategories = categories
+    }) 
+  }
+
   user_id: number;
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id')) 
     this.getFixedExpenses()
+    this.getExpenseCategories()
   }
 
 }

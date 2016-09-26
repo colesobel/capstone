@@ -14,9 +14,7 @@
     <div class="expense-container" *ngFor="let num of fixedExpensesInputs; let i = index">
       <h3>Fixed Expense {{i + 1}}</h3>
       <select class="form-control input">
-        <option>Housing</option>
-        <option>Car</option>
-        <option>Utilities</option>
+        <option *ngFor="let cat of expenseCategories">{{cat.expense_category}}</option>
       </select>
       <input type="number" class="form-control input" placeholder="Amount">
     </div>

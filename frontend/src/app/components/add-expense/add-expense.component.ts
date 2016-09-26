@@ -17,8 +17,16 @@ export class AddExpenseComponent implements OnInit {
 
   dateString = new Date().toISOString().substring(0, 10)
 
+  expenseCategories = []
+
   addExpense() {
     this.expenses.push('expense')
+  }
+
+  getExpenseCategories = () => {
+    this._http.postData('http://localhost:3000/accountSettings/getExpenseCategories', {user_id: this.user_id}).subscribe(categories => {
+      this.expenseCategories = categories
+    }) 
   }
 
   onSubmit() {
@@ -36,15 +44,16 @@ export class AddExpenseComponent implements OnInit {
       expenseObj[i].month = this._getDate.getMonthName(new Date(date).getMonth())
       expenseObj[i].year = new Date(date).getFullYear()
     }
-    console.log(expenseObj)
     this._http.postData('http://localhost:3000/dailyExpenses/addExpense', {user_id: this.user_id, expenseObj}).subscribe(data => {
       console.log(data)
+      this.expenses = ['expense']
     })
   }
 
 
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id'))
+    this.getExpenseCategories()
   }
 
 }
