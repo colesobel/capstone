@@ -32,7 +32,6 @@ export class ExpenseCategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(localStorage.getItem('user_id'));
     this.user_id = Number(localStorage.getItem('user_id')) 
     this.getExpenseCategories()
   }

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing'
 
 import { HttpService } from './services/http.service'
+import { GetDateService } from './services/get-date.service'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -38,7 +39,7 @@ import { MonthlyIncomeComponent } from './components/monthly-income/monthly-inco
     HttpModule,
     routing
   ],
-  providers: [HttpService],
+  providers: [HttpService, GetDateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
