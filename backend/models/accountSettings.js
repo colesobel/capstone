@@ -31,6 +31,10 @@ let accountSettings = {
 
     getIncome: user_id => {
         return knex.raw(`select monthly_income from user_income where user_id = ${user_id}`)
+    },
+
+    updateIncome: userInfo => {
+        return knex.raw(`update user_income set monthly_income = ${userInfo.income} where user_id = ${userInfo.user_id}`)
     }
 
 }

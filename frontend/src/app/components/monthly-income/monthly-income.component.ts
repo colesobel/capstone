@@ -10,18 +10,34 @@ import { HttpService } from '../../services/http.service'
 export class MonthlyIncomeComponent implements OnInit {
   user_id: number
   userIncome: number
+  noIncomeData: boolean = false
+  editingIncome: boolean = false
   constructor(private _http:HttpService) { }
 
   onSubmit(income) {
-    console.log(income.value); 
     this._http.postData('http://localhost:3000/accountSettings/enterIncome', {user_id: this.user_id, income: income.value}).subscribe(data => {
-      console.log(data);
+      this.getMonthlyIncome()
+    })
+  }
+
+  editIncome(updatedIncome) {
+    let income = document.getElementById('updatedIncome')['value']
+    this._http.postData('http://localhost:3000/accountSettings/updateIncome', {user_id: this.user_id, income}).subscribe(income => {
+      this.userIncome = income
+      this.editingIncome = false
     })
   }
 
   getMonthlyIncome = () => {
     this._http.postData('http://localhost:3000/accountSettings/getIncome', {user_id: this.user_id}).subscribe(income => {
-      this.userIncome = income
+      console.log(income);
+      if (income) {
+        this.userIncome = income
+        this.noIncomeData = false
+      } else {
+        this.noIncomeData = true
+      }
+      console.log(this.noIncomeData);
     })
   }
 

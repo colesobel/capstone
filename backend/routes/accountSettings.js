@@ -3,13 +3,11 @@ var router = express.Router();
 let AccountSettings = require('../models/accountSettings')
 
 router.post('/getExpenseCategories', function(req, res, next) {
-    console.log(req.body) 
     AccountSettings.getExpenseCategories(req.body.user_id).then(categories => res.json(categories.rows))
 });
 
 
 router.post('/addExpenseCategories', function(req, res, next) {
-    console.log(req.body) 
     AccountSettings.addExpenseCategory(req.body.user_id, req.body.category).then(() => res.json('success'))
 })
 
@@ -20,7 +18,6 @@ router.post('/deleteExpenseCategories', function(req, res, next) {
 
 
 router.post('/addFixedExpenses', function(req, res, next) {
-    console.log(req.body)
     AccountSettings.addFixedExpenses(req.body).then(() => res.json('success'))
 })
 
@@ -35,8 +32,19 @@ router.post('/enterIncome', function(req, res, next) {
 
 
 router.post('/getIncome', function(req, res, next) {
-    AccountSettings.getIncome(req.body.user_id).then(income => res.json(income.rows[0].monthly_income))
+    AccountSettings.getIncome(req.body.user_id).then(income => {
+        income.rows[0] ?  res.json(income.rows[0].monthly_income) : res.json(false)        
+    })
 })
+
+
+router.post('/updateIncome', function(req, res, next) {
+    console.log(req.body)
+    AccountSettings.updateIncome(req.body).then(income => res.json(req.body.income))
+})
+
+
+
 
 
 

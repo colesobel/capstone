@@ -1,9 +1,15 @@
 <p class="display-1 sub-title">Monthly Net Income</p>
-<div class="list-group-item expense-list-item">
-  <h4 class="h4 capitalize">{{userIncome}}</h4>
-  <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Edit</button>
+<div class="list-group-item expense-list-item" *ngIf="!noIncomeData">
+  <div [ngSwitch]="editingIncome">
+    <h4 *ngSwitchCase="false" class="h4 capitalize">{{userIncome}}</h4>
+    <input *ngSwitchCase="true" class="form-control" type="number" value="{{userIncome}}" id="updatedIncome">
+  </div>
+  <div [ngSwitch]="editingIncome">
+    <button class="btn btn-danger btn-small" (click)="editingIncome = true" *ngSwitchCase="false">Edit</button>
+    <button class="btn btn-danger btn-small" (click)="editIncome(updatedIncome)" *ngSwitchCase="true">Submit</button>
+  </div>
 </div>
-<form class="form-group" (ngSubmit)="onSubmit(income)">
+<form class="form-group" (ngSubmit)="onSubmit(income)" *ngIf="noIncomeData">
   <label for="monthly-income"></label>
   <input class="form-control income-input" type="number" name="monthly-income" placeholder="Enter Your Monthly Takehome Income" #income>
   <button type="submit" class="btn btn-success submit-income">Submit Income</button>
