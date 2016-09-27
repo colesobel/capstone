@@ -39,6 +39,19 @@ export class ExpenseCategoriesComponent implements OnInit {
     }) 
   }
 
+  submitTempExpenses(i, id) {
+    // console.log(document.getElementById(i + 'expCat')['value'])
+    // console.log(document.getElementById(i + 'percentage')['value'])
+    // console.log(id)
+    this.expenseCategories.forEach(cat => {
+      if (cat['id'] == id) {
+        cat['expense_category'] = document.getElementById(i + 'expCat')['value']
+        cat['percentage'] = document.getElementById(i + 'percentage')['value']
+      }
+    })
+    console.log(this.expenseCategories)
+  }
+
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id')) 
     this.getExpenseCategories()

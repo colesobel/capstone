@@ -4,11 +4,15 @@
 <button class="btn btn-primary" (click)="addCategory(newCat)">Add Category</button>
 <div class="expense-categories-container">
   <div class="list-group expense-parent">
-    <div class="list-group-item expense-list-item" *ngFor="let cat of expenseCategories">
-      <h4 class="h4 capitalize">{{cat.expense_category}}</h4>
-      <h4 class="h4">{{cat.percentage}}%</h4>
-      <h4>{{cat.isEditing}}</h4>
-      <button class="btn btn-warning" (click)="cat.isEditing = !cat.isEditing">Edit</button>
+    <div class="list-group-item expense-list-item" *ngFor="let cat of expenseCategories; let i = index">
+      <div [ngSwitch]="cat.isEditing">
+        <h4 *ngSwitchCase="false" class="h4 capitalize">{{cat.expense_category}}</h4>
+        <h4 *ngSwitchCase="false" class="h4">{{cat.percentage}}%</h4>
+        <input *ngSwitchCase="true" type="text" value="{{cat.expense_category}}" id="{{i + 'expCat'}}">
+        <input *ngSwitchCase="true" type="number" value="{{cat.percentage}}" id="{{i + 'percentage'}}">
+        <button *ngSwitchCase="false" class="btn btn-warning" (click)="cat.isEditing = !cat.isEditing">Edit</button>
+        <button *ngSwitchCase="true" class="btn btn-warning" (click)="cat.isEditing = !cat.isEditing; submitTempExpenses(i, cat.id)">Submit</button>
+      </div>
       <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Delete</button>
     </div>
   </div>
