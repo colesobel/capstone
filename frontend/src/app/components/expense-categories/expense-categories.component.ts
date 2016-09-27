@@ -27,7 +27,15 @@ export class ExpenseCategoriesComponent implements OnInit {
 
   getExpenseCategories = () => {
     this._http.postData('http://localhost:3000/accountSettings/getExpenseCategories', {user_id: this.user_id}).subscribe(categories => {
-      this.expenseCategories = categories
+
+      this.expenseCategories = categories.map(cat => {
+        return {
+          id: cat.id,
+          expense_category: cat.expense_category,
+          percentage: cat.percentage,
+          isEditing: false
+        }
+      })
     }) 
   }
 

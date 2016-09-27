@@ -18,6 +18,7 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { ExpenseCategoriesComponent } from './components/expense-categories/expense-categories.component';
 import { FixedExpensesComponent } from './components/fixed-expenses/fixed-expenses.component';
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
+import { GaugeComponent } from './components/gauge/gauge.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MonthlyIncomeComponent } from './components/monthly-income/monthly-inco
     HeatmapComponent,
     ExpenseCategoriesComponent,
     FixedExpensesComponent,
-    MonthlyIncomeComponent
+    MonthlyIncomeComponent,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,

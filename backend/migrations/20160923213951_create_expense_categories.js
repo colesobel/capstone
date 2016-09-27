@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.integer('user_id');
     table.string('expense_category');
+    table.integer('percentage')
   })
 };
 

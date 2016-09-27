@@ -6,6 +6,9 @@
   <div class="list-group expense-parent">
     <div class="list-group-item expense-list-item" *ngFor="let cat of expenseCategories">
       <h4 class="h4 capitalize">{{cat.expense_category}}</h4>
+      <h4 class="h4">{{cat.percentage}}%</h4>
+      <h4>{{cat.isEditing}}</h4>
+      <button class="btn btn-warning" (click)="cat.isEditing = !cat.isEditing">Edit</button>
       <button class="btn btn-danger btn-small" (click)="deleteCategory(cat.id)">Delete</button>
     </div>
   </div>
