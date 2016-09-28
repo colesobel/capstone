@@ -1,24 +1,15 @@
 <app-navbar></app-navbar>
-<!--<div id="header">
-  <h1 style="padding:0;margin:0;">&lt; aboutcher /&gt;;</h1>
-  Parallax Demo
-</div>-->
-<div class="content">
-    HeatMap
-</div>
-<div class="parallax" id="trans1">
-  <app-heatmap></app-heatmap>
-</div>
 
-<div class="content">Topographical Map</div>
-
-<div class="parallax" id="trans2">
-  <div id="myDiv"></div> 
-</div>
-
-<div class="content">
-    <app-gauge></app-gauge>
-</div>
-<div class="parallax" id="trans3">
-  <app-stacked-bar></app-stacked-bar>
-</div>
+<app-heatmap></app-heatmap>
+<div id="myDiv"></div> 
+<app-gauge [gauge]="[
+          ['Label', 'Value'],
+          ['Memory Yo', 80]
+        ]"
+        [options]="{
+      width: 600, height: 200,
+      redFrom: 90, redTo: 100,
+      yellowFrom:75, yellowTo: 90,
+      minorTicks: 5
+    }"></app-gauge>
+<!--<app-stacked-bar></app-stacked-bar>-->
