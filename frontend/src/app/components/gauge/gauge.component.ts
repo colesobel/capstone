@@ -10,12 +10,13 @@ export class GaugeComponent implements OnInit {
   constructor() { }
 
   @Input() gauge: any[];
-  @Input() options: any
+  @Input() options: any;
+  @Input() id: any;
 
   drawChart = () => {
     var data = google.visualization.arrayToDataTable(this.gauge);
 
-    var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+    var chart = new google.visualization.Gauge(document.getElementById(this.id));
 
     chart.draw(data, this.options);
   }

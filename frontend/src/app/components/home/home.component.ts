@@ -13,9 +13,12 @@ export class HomeComponent implements OnInit {
   constructor(private _http: HttpService, private _getDate: GetDateService) { }
   user_id: number
   someCoolValue: number = 40
+  someGauge: any = 'someGaugeYo'
+  gaugeStats : any[]
   getGaugeStats = () => {
-    this._http.postData('http://localhost:3000/dailyExpenses/getGaugeStats', {user_id: this.user_id}).subscribe(data => {
-      console.log(data)
+    this._http.postData('http://localhost:3000/dailyExpenses/getGaugeStats', {user_id: this.user_id}).subscribe(gaugeStats => {
+      this.gaugeStats = gaugeStats
+      console.log(this.gaugeStats);
     })
   }
 

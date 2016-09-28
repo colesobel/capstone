@@ -2,9 +2,10 @@
 
 <app-heatmap></app-heatmap>
 <div id="myDiv"></div> 
-<app-gauge [gauge]="[
+<app-gauge *ngFor="let g of gaugeStats; let i = index" 
+      [gauge]="[
           ['Label', 'Value'],
-          ['Memory Yo', someCoolValue]
+          [g.expense_category, g.spend_percentage]
         ]"
         [options]="{
       width: 600, height: 200,
@@ -13,5 +14,6 @@
       greenFrom:50, greenTo: 75,
       max: 150,
       minorTicks: 5
-    }"></app-gauge>
+    }"
+    [id]="i"></app-gauge>
 <!--<app-stacked-bar></app-stacked-bar>-->

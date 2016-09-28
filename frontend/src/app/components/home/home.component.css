@@ -7,3 +7,7 @@
   color:#000;
 }*/
 
+app-gauge {
+  margin: 400px;
+  border: 2px solid black;
+}
