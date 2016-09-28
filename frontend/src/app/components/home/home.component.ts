@@ -12,39 +12,16 @@ export class HomeComponent implements OnInit {
 
   constructor(private _http: HttpService, private _getDate: GetDateService) { }
   user_id: number
+  someCoolValue: number = 40
+  getGaugeStats = () => {
+    this._http.postData('http://localhost:3000/dailyExpenses/getGaugeStats', {user_id: this.user_id}).subscribe(data => {
+      console.log(data)
+    })
+  }
 
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id'))
-
-    Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
-    function unpack(rows, key) {
-      return rows.map(function(row) { return row[key]; });
-    }
-
-    var z_data=[ ]
-    for(let i=0; i<24; i++){
-      z_data.push(unpack(rows,i));
-    }
-    var data = [{
-              z: z_data,
-              type: 'surface'
-            }];
-
-    var layout = {
-      title: 'Mt Bruno Elevation',
-      autosize: false,
-      width: 500,
-      height: 500,
-      margin: {
-        l: 65,
-        r: 50,
-        b: 65,
-        t: 90,
-      }
-    };
-    Plotly.newPlot('myDiv', data, layout);
-    });
-
+    this.getGaugeStats()
   }
 
 }

@@ -4,12 +4,14 @@
 <div id="myDiv"></div> 
 <app-gauge [gauge]="[
           ['Label', 'Value'],
-          ['Memory Yo', 80]
+          ['Memory Yo', someCoolValue]
         ]"
         [options]="{
       width: 600, height: 200,
       redFrom: 90, redTo: 100,
       yellowFrom:75, yellowTo: 90,
+      greenFrom:50, greenTo: 75,
+      max: 150,
       minorTicks: 5
     }"></app-gauge>
 <!--<app-stacked-bar></app-stacked-bar>-->
