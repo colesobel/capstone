@@ -12,6 +12,9 @@ export class GaugeComponent implements OnInit {
   @Input() gauge: any[];
   @Input() options: any;
   @Input() id: any;
+  @Input() cardTitle: string
+  @Input() desiredSpendPercentage: number;
+  @Input() spendPercentage: number;
 
   drawChart = () => {
     var data = google.visualization.arrayToDataTable(this.gauge);

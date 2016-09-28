@@ -17,7 +17,14 @@ export class HomeComponent implements OnInit {
   gaugeStats : any[]
   getGaugeStats = () => {
     this._http.postData('http://localhost:3000/dailyExpenses/getGaugeStats', {user_id: this.user_id}).subscribe(gaugeStats => {
-      this.gaugeStats = gaugeStats
+      this.gaugeStats = gaugeStats.map(gauge => {
+        console.log(((Number(gauge.gauge_max) - Number(gauge.desired_spend_percentage)) / 2))
+        gauge.yellowFrom = Number(gauge.desired_spend_percentage)
+        gauge.yellowTo = Math.floor(Number(gauge.desired_spend_percentage) + ( ((Number(gauge.gauge_max) - Number(gauge.desired_spend_percentage)) / 2))) 
+        gauge.redFrom = Math.floor(Number(gauge.desired_spend_percentage) + ( ((Number(gauge.gauge_max) - Number(gauge.desired_spend_percentage)) / 2)))
+        gauge.redTo = gauge.gauge_max
+        return gauge
+      })
       console.log(this.gaugeStats);
     })
   }

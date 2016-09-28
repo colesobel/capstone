@@ -1,4 +1,13 @@
-div {
+/*div {
+    margin: 1%;
+    display: inline-block;
+}*/
+
+.card-body {
     border: 2px solid black;
-    margin: 100px;
+    margin: 5%;
+}
+
+.card-text {
+    width: 100%;
 }

@@ -2,18 +2,26 @@
 
 <app-heatmap></app-heatmap>
 <div id="myDiv"></div> 
-<app-gauge *ngFor="let g of gaugeStats; let i = index" 
-      [gauge]="[
-          ['Label', 'Value'],
-          [g.expense_category, g.spend_percentage]
-        ]"
-        [options]="{
-      width: 600, height: 200,
-      redFrom: 90, redTo: 100,
-      yellowFrom:75, yellowTo: 90,
-      greenFrom:50, greenTo: 75,
-      max: 150,
-      minorTicks: 5
-    }"
-    [id]="i"></app-gauge>
+<div class="gauge-container">
+  <app-gauge *ngFor="let g of gaugeStats; let i = index" 
+        [gauge]="[
+            ['Label', 'Value'],
+            [g.expense_category, g.spend_percentage]
+          ]"
+          [options]="{
+        width: 600, height: 200,
+        redFrom: g.redFrom, redTo: g.redTo,
+        yellowFrom: g.yellowFrom, yellowTo: g.yellowTo, 
+        greenFrom:0, greenTo: g.yellowFrom,
+        max: g.gauge_max,
+        minorTicks: 5
+      }"
+      [id]="i"
+      [cardTitle]="g.expense_category"
+      [desiredSpendPercentage]="g.desired_spend_percentage"
+      [spendPercentage]="g.spend_percentage"
+      
+      ></app-gauge>
+
+</div>
 <!--<app-stacked-bar></app-stacked-bar>-->
