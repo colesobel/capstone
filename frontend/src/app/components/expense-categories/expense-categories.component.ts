@@ -10,7 +10,7 @@ export class ExpenseCategoriesComponent implements OnInit {
 
   constructor(private _http: HttpService) { }
   user_id: number;
-  expenseCategories: string[] = []
+  expenseCategories: any[] = []
   percentageTotal: number
 
   getPercentageTotal() {
@@ -20,8 +20,11 @@ export class ExpenseCategoriesComponent implements OnInit {
   }
 
   addCategory(cat) {
-    this._http.postData('http://localhost:3000/accountSettings/addExpenseCategories', {user_id: this.user_id, category: cat.value}).subscribe(() => {
-      this.getExpenseCategories()
+    this.expenseCategories.push({
+      id: cat,
+      expense_category: cat.value,
+      percentage: 0,
+      isEditing: false
     })
   }
 
