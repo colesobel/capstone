@@ -7,7 +7,6 @@
       <li class="selected" #firstLi (click)="selectTab(firstLi, 'expenseCategories')"><span>Expense Categories</span></li>
         <li #secondLi (click)="selectTab(secondLi, 'fixedExpenses')"><span>Fixed Expenses</span></li>
         <li #thirdLi (click)="selectTab(thirdLi, 'income')"><span>Income</span></li>
-        <li #fourthLi (click)="selectTab(fourthLi, 'savings')"><span>Spending/Saving Target</span></li>
     </ul>
 
   <form class="form-group" *ngIf="selectedTab === 'expenseCategories'">
@@ -21,10 +20,4 @@
   <div *ngIf="selectedTab === 'income'">
     <app-monthly-income></app-monthly-income>
   </div>
-
-  <form class="form-group" *ngIf="selectedTab === 'savings'">
-    <p class="display-1 sub-title">Desired Monthly Spending/Savings Target</p>
-    
-
-  </form>
 </div>
