@@ -40,9 +40,6 @@ export class ExpenseCategoriesComponent implements OnInit {
   }
 
   submitTempExpenses(i, id) {
-    // console.log(document.getElementById(i + 'expCat')['value'])
-    // console.log(document.getElementById(i + 'percentage')['value'])
-    // console.log(id)
     this.expenseCategories.forEach(cat => {
       if (cat['id'] == id) {
         cat['expense_category'] = document.getElementById(i + 'expCat')['value']
@@ -50,6 +47,18 @@ export class ExpenseCategoriesComponent implements OnInit {
       }
     })
     console.log(this.expenseCategories)
+  }
+
+  submitExpensesToDatabase() {
+    let total = 0
+    this.expenseCategories.forEach(cat => total += Number(cat['percentage']))
+    if (total === 100) {
+      this._http.postData('http://localhost:3000/accountSettings/updateExpenseCategories', {user_id: this.user_id, expenseCategories: this.expenseCategories}).subscribe(data => {
+        console.log(data)
+      })
+    } else {
+      console.log('you suck')
+    }
   }
 
   ngOnInit() {

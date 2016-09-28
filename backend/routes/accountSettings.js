@@ -44,6 +44,14 @@ router.post('/updateIncome', function(req, res, next) {
 })
 
 
+router.post('/updateExpenseCategories', function(req, res, next) {
+    console.log(req.body)
+    AccountSettings.updateExpenseCategories(req.body).then(() => res.json('success'))
+})
+
+
+
+
 
 
 

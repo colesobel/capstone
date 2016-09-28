@@ -14,6 +14,15 @@ let accountSettings = {
         return knex.raw(`delete from expense_categories where user_id = ${user_id} and id = ${catId}`)
     },
 
+    updateExpenseCategories: userInfo => {
+        return new Promise((resolve, reject) => {
+            return knex.raw(`delete from expense_categories where user_id = ${userInfo.user_id}`).then(() => {
+                let expenseCategoryUploads = AccountSettingsService.createExpenseCategoriesArray(userInfo)
+                Promise.all(expenseCategoryUploads).then(() => resolve())
+            })
+        })
+    },
+
     addFixedExpenses: (userInfo) => {
         return new Promise((resolve, reject) => {
             let expenseUploads = AccountSettingsService.createFixedExpenseArray(userInfo)
