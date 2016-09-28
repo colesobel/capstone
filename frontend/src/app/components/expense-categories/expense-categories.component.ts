@@ -11,6 +11,13 @@ export class ExpenseCategoriesComponent implements OnInit {
   constructor(private _http: HttpService) { }
   user_id: number;
   expenseCategories: string[] = []
+  percentageTotal: number
+
+  getPercentageTotal() {
+    let total = 0
+    this.expenseCategories.forEach(cat => total += Number(cat['percentage']))
+    this.percentageTotal = total
+  }
 
   addCategory(cat) {
     this._http.postData('http://localhost:3000/accountSettings/addExpenseCategories', {user_id: this.user_id, category: cat.value}).subscribe(() => {
@@ -19,15 +26,16 @@ export class ExpenseCategoriesComponent implements OnInit {
   }
 
   deleteCategory(catId) {
-    console.log(catId);
-    this._http.postData('http://localhost:3000/accountSettings/deleteExpenseCategories', {user_id: this.user_id, category: catId}).subscribe(() => {
-      this.getExpenseCategories()
-    })
+    for(let i = 0; i < this.expenseCategories.length; i++) {
+      if (this.expenseCategories[i]['id'] == catId) {
+        this.expenseCategories.splice(i, 1)
+      }
+    }
+    this.getPercentageTotal()
   }
 
   getExpenseCategories = () => {
     this._http.postData('http://localhost:3000/accountSettings/getExpenseCategories', {user_id: this.user_id}).subscribe(categories => {
-
       this.expenseCategories = categories.map(cat => {
         return {
           id: cat.id,
@@ -36,6 +44,7 @@ export class ExpenseCategoriesComponent implements OnInit {
           isEditing: false
         }
       })
+      this.getPercentageTotal()
     }) 
   }
 
@@ -46,7 +55,7 @@ export class ExpenseCategoriesComponent implements OnInit {
         cat['percentage'] = document.getElementById(i + 'percentage')['value']
       }
     })
-    console.log(this.expenseCategories)
+    this.getPercentageTotal()
   }
 
   submitExpensesToDatabase() {
@@ -57,7 +66,7 @@ export class ExpenseCategoriesComponent implements OnInit {
         console.log(data)
       })
     } else {
-      console.log('you suck')
+      console.log('you suck at math')
     }
   }
 
