@@ -2,6 +2,7 @@
     /*background-color: #00cc00 !important;*/
     background: linear-gradient(to bottom right, #00b300, #1aff1a);
     color: black;
+    margin-bottom: 0;
 }
 
 a {

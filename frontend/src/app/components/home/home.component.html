@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <app-heatmap></app-heatmap>
+  <!--<app-heatmap></app-heatmap>-->
   <!--<div id="myDiv"></div> -->
   <div class="gauge-container">
     <div *ngFor="let g of gaugeStats; let i = index" class="card card-body">
@@ -12,20 +12,24 @@
           [spendPercentage]="g.spend_percentage"
           [gaugeMax]="g.gauge_max"
         ></app-gauge>
-        <hr>
-        <app-horizontal-bar
-        [spentPercentage]="g.spent_percentage"
-        [budgetLeftPercentage]="g.budget_left_percentage"></app-horizontal-bar>
-          <div class="card-block">
-              <h4 class="card-title capitalize">{{g.expense_category}}</h4>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Desired Spend Percentage: {{g.desired_spend_percentage}}%</li>
-              <li class="list-group-item">Actual Spend Percentage: {{g.spend_percentage}}%</li>
-              <li class="list-group-item">Monthly Target: {{g.allocated_for_budget | dollar}}</li>
-              <li class="list-group-item">Amount Spent: ${{g.spend_total}}</li>
-              <li class="list-group-item">Budget Remaining: {{g.budget_left | dollar}}</li>
-          </ul>
+        <div class="shift-up">
+          <hr class="line-break">
+          <p class="sub-title">{{g.percentage_spent | percent}} of Monthly Budget</p>
+          <app-horizontal-bar
+          [daysInMonth]="daysInMonth"
+          [dayOfMonth]="dayOfMonth"
+          [spentPercentage]="g.spent_percentage"
+          [budgetLeftPercentage]="g.budget_left_percentage"></app-horizontal-bar>
+            <div class="card-block">
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item stat">Desired Spend Percentage: {{g.desired_spend_percentage}}%</li>
+                <li class="list-group-item stat">Actual Spend Percentage: {{g.spend_percentage}}%</li>
+                <li class="list-group-item stat">Monthly Target: {{g.allocated_for_budget | dollar}}</li>
+                <li class="list-group-item stat">Amount Spent: ${{g.spend_total}}</li>
+                <li class="list-group-item stat">Budget Remaining: {{g.budget_left | dollar}}</li>
+            </ul>
+        </div>
       </div>
   </div>
 

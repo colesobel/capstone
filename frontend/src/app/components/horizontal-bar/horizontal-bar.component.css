@@ -1,6 +1,6 @@
 .spent {
     background-color: #FB1C16;
-    height: 50px;
+    height: 25px;
     padding: 0!important;
     margin: 0!important;
     color: white;
@@ -8,8 +8,8 @@
 }
 
 .budget-left {
-    background-color: #12D512;
-    height: 50px;
+    background-color: #E0E0E0;
+    height: 25px;
     padding: 0!important;
     margin: 0!important;
     color: white;
@@ -33,4 +33,24 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.month {
+    margin-top: 10px;
+}
+
+.days-passed {
+    background-color: #D20080;
+}
+
+.days-left {
+    background-color: #E0E0E0;
+}
+
+.days-passed-text {
+    color: #D20080;
+}
+
+.days-left-text {
+    color: #E0E0E0;
 }

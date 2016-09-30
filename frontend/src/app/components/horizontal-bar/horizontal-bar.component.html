@@ -1,7 +1,13 @@
 
 <!--<div class="stacked-bar" id="barchart_values" style="width: 900px; height: 150px;"></div>-->
-<div class="labels"><span class="red">Money Spent</span> <span class="green">Money Left</span></div>
+<div class="labels"><span class="red">Budget Spent</span></div>
 <div class="bar-container">
   <div [ngStyle]="{'width': spentPercentage +'%'}" class="spent"></div>
   <div [ngStyle]="{'width': budgetLeftPercentage + '%'}" class="budget-left"></div>
+</div>
+
+  <div class="labels month"> <span class="days-passed-text">Days Passed</span></div>
+<div class="bar-container">
+  <div [ngStyle]="{'width': daysPassedPercentage +'%'}" class=" spent days-passed"></div>
+  <div [ngStyle]="{'width': daysLeftPercentage + '%'}" class=" budget-left days-left"></div>
 </div>

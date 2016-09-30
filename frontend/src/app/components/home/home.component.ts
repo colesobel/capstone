@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
         cat.budget_left = cat.allocated_for_budget - Number(cat.spend_total)
         cat.spent_percentage = (Number(cat.spend_total) / cat.allocated_for_budget * 100).toFixed(2)
         cat.budget_left_percentage = (cat.budget_left / cat.allocated_for_budget * 100).toFixed(2)
+        cat.percentage_spent = Number((cat.spend_total / cat.allocated_for_budget * 100).toFixed())
         return cat
       })
       console.log(this.gaugeStats);
