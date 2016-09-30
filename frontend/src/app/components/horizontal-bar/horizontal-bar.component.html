@@ -1,6 +1,7 @@
 
 <!--<div class="stacked-bar" id="barchart_values" style="width: 900px; height: 150px;"></div>-->
+<div class="labels"><span class="red">Money Spent</span> <span class="green">Money Left</span></div>
 <div class="bar-container">
-  <div class="spent">Money Spent</div>
-  <div class="budget-left">Money Left</div>
+  <div [ngStyle]="{'width': spentPercentage +'%'}" class="spent"></div>
+  <div [ngStyle]="{'width': budgetLeftPercentage + '%'}" class="budget-left"></div>
 </div>

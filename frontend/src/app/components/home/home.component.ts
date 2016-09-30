@@ -17,7 +17,13 @@ export class HomeComponent implements OnInit {
   gaugeStats : any[]
   getGaugeStats = () => {
     this._http.postData('http://localhost:3000/dailyExpenses/getGaugeStats', {user_id: this.user_id}).subscribe(gaugeStats => {
-      this.gaugeStats = gaugeStats
+      this.gaugeStats = gaugeStats.map(cat => {
+        cat.allocated_for_budget = (Number(cat.desired_spend_percentage) / 100) * Number(cat.monthly_income)
+        cat.budget_left = cat.allocated_for_budget - Number(cat.spend_total)
+        cat.spent_percentage = (Number(cat.spend_total) / cat.allocated_for_budget * 100).toFixed(2)
+        cat.budget_left_percentage = (cat.budget_left / cat.allocated_for_budget * 100).toFixed(2)
+        return cat
+      })
       console.log(this.gaugeStats);
     })
   }

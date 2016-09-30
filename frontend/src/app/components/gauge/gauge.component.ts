@@ -29,7 +29,6 @@ export class GaugeComponent implements OnInit {
     }
 
     let color = this._getColor.getColor(this.spendPercentage/ this.gaugeMax)
-    console.log('colorperc', color);
     
 
   var opts = {
@@ -54,8 +53,6 @@ var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
 gauge.maxValue = this.gaugeMax; // set max gauge value
 gauge.animationSpeed = 32; // set animation speed (32 is default value)
 gauge.set(this.spendPercentage); // set actual value
-console.log(this.spendPercentage)
-
   }
 
 }

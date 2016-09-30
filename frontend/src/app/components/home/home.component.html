@@ -12,7 +12,9 @@
         [spendPercentage]="g.spend_percentage"
         [gaugeMax]="g.gauge_max"
       ></app-gauge>
-      <app-horizontal-bar></app-horizontal-bar>
+      <app-horizontal-bar
+      [spentPercentage]="g.spent_percentage"
+      [budgetLeftPercentage]="g.budget_left_percentage"></app-horizontal-bar>
         <div class="card-block">
             <h4 class="card-title">{{g.expense_category}}</h4>
         </div>
