@@ -20,6 +20,8 @@ import { FixedExpensesComponent } from './components/fixed-expenses/fixed-expens
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
 import { GaugeComponent } from './components/gauge/gauge.component';
 import { HorizontalBarComponent } from './components/horizontal-bar/horizontal-bar.component';
+import { PercentPipe } from './pipes/percent.pipe';
+import { DollarPipe } from './pipes/dollar.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { HorizontalBarComponent } from './components/horizontal-bar/horizontal-b
     FixedExpensesComponent,
     MonthlyIncomeComponent,
     GaugeComponent,
-    HorizontalBarComponent
+    HorizontalBarComponent,
+    PercentPipe,
+    DollarPipe
   ],
   imports: [
     BrowserModule,

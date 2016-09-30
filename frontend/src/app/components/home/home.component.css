@@ -15,5 +15,10 @@
 
 .card-body {
     border: 2px solid black;
-    margin: 5%;
+    margin: 3%;
+}
+
+.capitalize {
+  text-transform: capitalize;
+  text-align: center;
 }
