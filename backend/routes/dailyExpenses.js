@@ -10,6 +10,10 @@ router.post('/getGaugeStats', function(req, res, next) {
     dailyExpenses.getGaugeStats(req.body.user_id).then(gaugeStats => res.json(gaugeStats))
 });
 
+router.post('/getDailyAverages', function(req, res, next) {
+    dailyExpenses.getDailyAverages(req.body.user_id).then(dailyAverages => res.json(dailyAverages.rows))
+});
+
 
 
 module.exports = router;

@@ -23,6 +23,7 @@ import { HorizontalBarComponent } from './components/horizontal-bar/horizontal-b
 import { PercentPipe } from './pipes/percent.pipe';
 import { DollarPipe } from './pipes/dollar.pipe';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { DailyBarChartComponent } from './components/daily-bar-chart/daily-bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     HorizontalBarComponent,
     PercentPipe,
     DollarPipe,
-    CapitalizePipe
+    CapitalizePipe,
+    DailyBarChartComponent
   ],
   imports: [
     BrowserModule,
