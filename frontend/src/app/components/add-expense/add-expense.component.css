@@ -20,3 +20,7 @@
 .submit-expenses {
     background: linear-gradient(to bottom right, #00b300, #1aff1a);
 }
+
+.expense-dropdown {
+    text-transform: capitalize;
+}

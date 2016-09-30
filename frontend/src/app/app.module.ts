@@ -22,6 +22,7 @@ import { GaugeComponent } from './components/gauge/gauge.component';
 import { HorizontalBarComponent } from './components/horizontal-bar/horizontal-bar.component';
 import { PercentPipe } from './pipes/percent.pipe';
 import { DollarPipe } from './pipes/dollar.pipe';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DollarPipe } from './pipes/dollar.pipe';
     GaugeComponent,
     HorizontalBarComponent,
     PercentPipe,
-    DollarPipe
+    DollarPipe,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

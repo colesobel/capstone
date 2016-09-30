@@ -12,7 +12,7 @@ export class GetColorService {
     } else if (value > 0.50 && value <= 0.75) {
       return '#FF9200'
     } else {
-      return '#FF2424'
+      return '#FB1C16'
     }
   }
 

@@ -16,3 +16,7 @@ a:hover {
     position: fixed;
     top: 0;
 }*/
+
+.capitalize {
+    text-transform: capitalize;
+}

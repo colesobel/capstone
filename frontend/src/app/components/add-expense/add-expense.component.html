@@ -9,7 +9,7 @@
     <div class="expense-container" *ngFor="let num of expenses; let i = index">
       <h3>Expense {{i + 1}}</h3>
       <select class="form-control input">
-        <option *ngFor="let cat of expenseCategories">{{cat.expense_category}}</option>
+        <option class="expense-dropdown" *ngFor="let cat of expenseCategories">{{cat.expense_category | capitalize}}</option>
       </select>
       <input type="number" class="form-control input" placeholder="Amount">
       <input type="date" class="form-control input" value="{{dateString}}">

@@ -16,4 +16,11 @@ router.post('/signup', function(req, res, next) {
     }).catch(e => console.log(e))
 });
 
+router.post('/getUserInfo', function(req, res, next) {
+    console.log('getting the fucking username')
+    Login.getUserInfo(req.body.user_id).then(name => res.json(name.rows[0]))
+});
+
+
+
 module.exports = router;

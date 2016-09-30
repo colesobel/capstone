@@ -31,6 +31,10 @@ let login = {
                 resolve()
             }).catch(e => console.log(e))
         })
+    },
+
+    getUserInfo: user_id => {
+        return knex.raw(`select first_name, last_name, username from users where id = ${user_id}`)
     }
 }
 
