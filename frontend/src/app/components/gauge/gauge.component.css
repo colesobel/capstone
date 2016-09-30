@@ -11,3 +11,9 @@
 .card-text {
     width: 100%;
 }
+
+#gauge {
+    width:400px; height:320px;
+    display: inline-block;
+    margin: 1em;
+}
