@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   someCoolValue: number = 40
   someGauge: any = 'someGaugeYo'
   gaugeStats : any[]
+  daysInMonth: number
+  dayOfMonth: number
   getGaugeStats = () => {
     this._http.postData('http://localhost:3000/dailyExpenses/getGaugeStats', {user_id: this.user_id}).subscribe(gaugeStats => {
       this.gaugeStats = gaugeStats.map(cat => {
@@ -28,8 +30,16 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  getDaysInMonth = () => {
+    let year = new Date().getFullYear()
+    let month = new Date().getMonth()
+    this.dayOfMonth = new Date().getDate()
+    this.daysInMonth = Date.getDaysInMonth(year, month)
+  }
+
   ngOnInit() {
     this.user_id = Number(localStorage.getItem('user_id'))
+    this.getDaysInMonth()
     this.getGaugeStats()
   }
 
