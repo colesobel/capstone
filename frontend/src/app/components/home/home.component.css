@@ -12,3 +12,8 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.card-body {
+    border: 2px solid black;
+    margin: 5%;
+}

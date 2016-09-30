@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <app-heatmap></app-heatmap>
-<div id="myDiv"></div> 
+<!--<div id="myDiv"></div> -->
 <div class="gauge-container">
   <div *ngFor="let g of gaugeStats; let i = index" class="card card-body">
     <div>
@@ -12,6 +12,7 @@
         [spendPercentage]="g.spend_percentage"
         [gaugeMax]="g.gauge_max"
       ></app-gauge>
+      <app-horizontal-bar></app-horizontal-bar>
         <div class="card-block">
             <h4 class="card-title">{{g.expense_category}}</h4>
         </div>

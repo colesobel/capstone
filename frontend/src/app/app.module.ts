@@ -19,6 +19,7 @@ import { ExpenseCategoriesComponent } from './components/expense-categories/expe
 import { FixedExpensesComponent } from './components/fixed-expenses/fixed-expenses.component';
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
 import { GaugeComponent } from './components/gauge/gauge.component';
+import { HorizontalBarComponent } from './components/horizontal-bar/horizontal-bar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { GaugeComponent } from './components/gauge/gauge.component';
     ExpenseCategoriesComponent,
     FixedExpensesComponent,
     MonthlyIncomeComponent,
-    GaugeComponent
+    GaugeComponent,
+    HorizontalBarComponent
   ],
   imports: [
     BrowserModule,

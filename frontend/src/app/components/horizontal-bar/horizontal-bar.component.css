@@ -1,0 +1,24 @@
+.spent {
+    background-color: #FF2424;
+    width: 50%;
+    height: 50px;
+    padding: 0!important;
+    margin: 0!important;
+    color: white;
+    text-align: center;
+}
+
+.budget-left {
+    background-color: #12D512;
+    width: 50%;
+    height: 50px;
+    padding: 0!important;
+    margin: 0!important;
+    color: white;
+    text-align: center;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: row;
+}
